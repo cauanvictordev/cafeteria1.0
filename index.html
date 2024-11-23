@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Responsivo de Site de Cafeteria</title>
+
+    <!-- Link para a biblioteca Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Link para o arquivo CSS personalizado -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    
+<!-- Início da seção do cabeçalho -->
+
+<header class="header">
+
+    <!-- Logo da empresa -->
+    <a href="#" class="logo">
+        <img src="logo.png" alt="Logo">
+    </a>
+
+    <!-- Navegação do site -->
+    <nav class="navbar">
+        <a href="#home">Início</a>
+        <a href="#about">Sobre</a>
+        <a href="#menu">Menu</a>
+        <a href="#products">Produtos</a>
+        <a href="#review">Avaliações</a>
+        <a href="#contact">Contato</a>
+        <a href="#blogs">Blogs</a>
+    </nav>
+
+
+    
+    <div class="icons">
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
+    
+    <!-- Modal do Carrinho -->
+    <div id="cart-modal" class="cart-modal hidden">
+        <h2>Meu Carrinho</h2>
+        <div id="cart-items">
+            <!-- Itens adicionados ao carrinho aparecerão aqui -->
+        </div>
+        <p>Total: <span id="cart-total">R$ 0,00</span></p>
+        <input type="text" id="address" placeholder="Digite seu endereço completo..." />
+        <div class="modal-actions">
+            <button id="close-modal-btn">Fechar</button>
+            <button id="checkout-btn">Finalizar Pedido</button>
+        </div>
+    </div>
+    
+
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    <button id="footer-cart-btn">
+   
+    </button>
+</footer>
+
+    
+    <!-- Formulário de pesquisa -->
+    <div class="search-form">
+        <input type="search" id="search-box" placeholder="Pesquise aqui...">
+        <label for="search-box" class="fas fa-search"></label>
+    </div>
+  
+    
+
+
+
+
+    <!-- Container dos itens no carrinho 
+    <div class="cart-items-container">
+        <div id="carrinho-itens">
+        </div>
+        <a href="#" class="btn">Finalizar Compra</a>
+    </div>
+
+-->
+    
+
+</header>
+
+<!-- Fim da seção do cabeçalho -->
+
+<!-- Início da seção inicial -->
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>Café fresco pela manhã</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat labore, sint cupiditate distinctio tempora reiciendis.</p>
+        <a href="#" class="btn">Peça já o seu</a>
+    </div>
+
+</section>
+
+<!-- Fim da seção inicial -->
+
+<!-- Início da seção sobre -->
+
+<section class="about" id="about">
+
+    <h1 class="heading"> <span>Sobre</span> Nós </h1>
+
+    <div class="row">
+
+        <!-- Imagem da seção -->
+        <div class="image">
+            <img src="about-img.jpeg" alt="Imagem Sobre Nós">
+        </div>
+
+        <!-- Conteúdo da seção -->
+        <div class="content">
+            <h3>O que torna nosso café especial?</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus qui ea ullam, enim tempora ipsum fuga alias quae ratione a officiis id temporibus autem? Quod nemo facilis cupiditate. Ex, vel?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit amet enim quod veritatis, nihil voluptas culpa! Neque consectetur obcaecati sapiente?</p>
+            <a href="#" class="btn">Saiba mais</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Fim da seção sobre -->
+
+<!-- Início da seção do menu -->
+<section class="menu" id="menu">
+    <h1 class="heading"> Nosso <span>Menu</span> </h1>
+    <div class="box-container">
+
+        <!-- Item 1 do menu -->
+        <div class="box">
+            <img src="menu-1.png" alt="Item do Menu 1">
+            <h3>Saboroso e Saudável</h3>
+            <div class="price">R$15,99 <span>R$20,99</span></div>
+            <button class="btn" onclick="adicionarAoCarrinho(1, 'Saboroso e Saudável', 15.99)">Adicionar ao Carrinho</button>
+
+        </div>
+
+        <!-- Item 2 do menu -->
+        <div class="box">
+            <img src="menu-2.png" alt="Item do Menu 2">
+            <h3>Saboroso e Saudável</h3>
+            <div class="price">R$15,99 <span>R$20,99</span></div>
+            <button class="btn" onclick="adicionarAoCarrinho(2, 'Saboroso e Saudável', 15.99)">Adicionar ao Carrinho</button>
+        </div>
+
+        <!-- Item 3 do menu -->
+        <div class="box" data-id="3">
+            <img src="menu-3.png" alt="Item do Menu 3">
+            <h3>Saboroso e Saudável</h3>
+            <div class="price">R$15,99 <span>R$20,99</span></div>
+            <button class="btn" onclick="adicionarAoCarrinho(3, 'Saboroso e Saudável', 15.99)">Adicionar ao Carrinho</button>
+        </div>
+
+        <!-- Item 4 do menu -->
+        <div class="box" data-id="4">
+            <img src="menu-4.png" alt="Item do Menu 4">
+            <h3>Saboroso e Saudável</h3>
+            <div class="price">R$15,99 <span>R$20,99</span></div>
+            <button class="btn" onclick="adicionarAoCarrinho(4, 'Saboroso e Saudável', 15.99)">Adicionar ao Carrinho</button>
+        </div>
+
+        <!-- Item 5 do menu -->
+        <div class="box" data-id="5">
+            <img src="menu-5.png" alt="Item do Menu 5">
+            <h3>Saboroso e Saudável</h3>
+            <div class="price">R$15,99 <span>R$20,99</span></div>
+            <button class="btn" onclick="adicionarAoCarrinho(5, 'Saboroso e Saudável', 15.99)">Adicionar ao Carrinho</button>
+        </div>
+
+        <!-- Item 6 do menu -->
+        <div class="box" data-id="6">
+            <img src="menu-6.png" alt="Item do Menu 6">
+            <h3>Saboroso e Saudável</h3>
+            <div class="price">R$15,99 <span>R$20,99</span></div>
+            <button class="btn" onclick="adicionarAoCarrinho(6, 'Saboroso e Saudável', 15.99)">Adicionar ao Carrinho</button>
+        </div>
+
+    </div>
+</section>
+<!-- Fim da seção do menu -->
+
+
+<!-- Início da seção de produtos -->
+
+<section class="products" id="products">
+
+    <h1 class="heading"> Nossos <span>Produtos</span> </h1>
+
+    <div class="box-container">
+
+        <!-- Produto 1 -->
+        <div class="box">
+            <div class="icons">
+                <a class="fas fa-shopping-cart" onclick="adicionarAoCarrinho(7, 'Café Fresco', 15.99)"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <div class="image">
+                <img src="product-1.png" alt="Produto 1">
+            </div>
+            <div class="content">
+                <h3>Café Fresco</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">R$15,99 <span>R$20,99</span></div>
+            </div>
+        </div>
+
+        <!-- Produto 2 -->
+        <div class="box">
+            <div class="icons">
+                <a class="fas fa-shopping-cart" onclick="adicionarAoCarrinho(1, 'Café Fresco', 15.99)"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <div class="image">
+                <img src="product-2.png" alt="Produto 2">
+            </div>
+            <div class="content">
+                <h3>Café Fresco</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">R$15,99 <span>R$20,99</span></div>
+            </div>
+        </div>
+
+        <!-- Produto 3 -->
+        <div class="box">
+            <div class="icons">
+                <a class="fas fa-shopping-cart" onclick="adicionarAoCarrinho(1, 'Café Fresco', 15.99)"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <div class="image">
+                <img src="product-3.png" alt="Produto 3">
+            </div>
+            <div class="content">
+                <h3>Café Fresco</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">R$15,99 <span>R$20,99</span></div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Fim da seção de produtos -->
+
+
+<!-- Início da seção de avaliações -->
+
+<section class="review" id="review">
+
+    <h1 class="heading"> Avaliações dos <span>Clientes</span> </h1>
+
+    <div class="box-container">
+
+        <!-- Avaliação 1 -->
+        <div class="box">
+            <img src="quote-img.png" alt="Citação" class="quote">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus vel? Nemo.</p>
+            <img src="pic-1.png" class="user" alt="Imagem do Cliente 1">
+            <h3>John Deo</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+
+        <!-- Avaliação 2 -->
+        <div class="box">
+            <img src="quote-img.png" alt="Citação" class="quote">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus vel? Nemo.</p>
+            <img src="pic-2.png" class="user" alt="Imagem do Cliente 2">
+            <h3>John Deo</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+
+        <!-- Avaliação 3 -->
+        <div class="box">
+            <img src="quote-img.png" alt="Citação" class="quote">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus vel? Nemo.</p>
+            <img src="pic-3.png" class="user" alt="Imagem do Cliente 3">
+            <h3>John Deo</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Fim da seção de avaliações -->
+
+<!-- Início da seção de contato -->
+
+<section class="contact" id="contact">
+    <h1 class="heading"> <span>Contato</span> Conosco </h1>
+    <div class="row">
+
+        <!-- Mapa embutido -->
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30153.788252261566!2d72.82321484621745!3d19.141690214227783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63aceef0c69%3A0x2aa80cf2287dfa3b!2sJogeshwari%20West%2C%20Mumbai%2C%20Maharashtra%20400047!5e0!3m2!1spt-BR!2sbr!4v1629452077891!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+
+        <!-- Formulário de contato -->
+        <form>
+            <h3>Entre em Contato</h3>
+            <div class="inputBox">
+                <span class="fas fa-user"></span>
+                <input type="text" id="name" placeholder="Nome" required>
+            </div>
+            <div class="inputBox">
+                <span class="fas fa-envelope"></span>
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="inputBox">
+                <span class="fas fa-phone"></span>
+                <input type="number" id="number" placeholder="Número de Telefone" required>
+            </div>
+            <button type="submit" id="contact-btn" class="btn">Enviar Mensagem</button>
+        </form>
+    </div>
+</section>
+
+<!-- Fim da seção de contato -->
+
+<!-- Seção de blogs começa -->
+
+<section class="blogs" id="blogs">
+
+    <!-- Título principal da seção -->
+    <h1 class="heading"> nossos <span>blogs</span> </h1>
+
+    <!-- Contêiner para os cartões dos blogs -->
+    <div class="box-container">
+
+        <!-- Primeiro blog -->
+        <div class="box">
+            <div class="image">
+                <!-- Imagem do blog -->
+                <img src="blog-1.jpeg" alt="">
+            </div>
+            <div class="content">
+                <!-- Título e link do blog -->
+                <a href="#" class="title">café saboroso e refrescante</a>
+                <!-- Informações do autor e data -->
+                <span>por admin / 21 de maio, 2021</span>
+                <!-- Breve descrição do conteúdo -->
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, dicta.</p>
+                <!-- Botão para ler mais -->
+                <a href="#" class="btn">ler mais</a>
+            </div>
+        </div>
+
+        <!-- Segundo blog -->
+        <div class="box">
+            <div class="image">
+                <img src="blog-2.jpeg" alt="">
+            </div>
+            <div class="content">
+                <a href="#" class="title">café saboroso e refrescante</a>
+                <span>por admin / 21 de maio, 2021</span>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, dicta.</p>
+                <a href="#" class="btn">ler mais</a>
+            </div>
+        </div>
+
+        <!-- Terceiro blog -->
+        <div class="box">
+            <div class="image">
+                <img src="blog-3.jpeg" alt="">
+            </div>
+            <div class="content">
+                <a href="#" class="title">café saboroso e refrescante</a>
+                <span>por admin / 21 de maio, 2021</span>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, dicta.</p>
+                <a href="#" class="btn">ler mais</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Seção de rodapé -->
+<section class="footer">
+
+    <!-- Links para redes sociais -->
+    <div class="share">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+        <a href="#" class="fab fa-pinterest"></a>
+    </div>
+
+    <!-- Links de navegação -->
+    <div class="links">
+        <a href="#">início</a>
+        <a href="#">sobre</a>
+        <a href="#">menu</a>
+        <a href="#">produtos</a>
+        <a href="#">avaliações</a>
+        <a href="#">contato</a>
+        <a href="#">blogs</a>
+    </div>
+
+    <!-- Créditos -->
+    <div class="credit">criado por <span>mr. web designer</span> | todos os direitos reservados</div>
+
+</section>
+
+<!-- Conexão com arquivo de script -->
+<script src="script.js"></script>
+
+</body>
+</html>
